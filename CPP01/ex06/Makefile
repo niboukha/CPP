@@ -2,9 +2,9 @@ CC = c++
 
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g3
 
-NAME = weapon
+NAME = harlFilter
 
-SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRC = main.cpp Harl.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 

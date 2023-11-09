@@ -5,35 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 16:37:06 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/04 16:26:21 by niboukha         ###   ########.fr       */
+/*   Created: 2023/11/07 18:26:38 by niboukha          #+#    #+#             */
+/*   Updated: 2023/11/08 11:20:20 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Replace.hpp"
+#include "Harl.hpp"
 
-int	main()
+int	main(int ac, char **av)
 {
-	std::ifstream	myfile;
-	std::ofstream	tofile;
-	std::string		s1;
-	std::string		s2;
-	std::string		str;
-	
-	s1 = "A";
-	s2 = "AA";
-	myfile.open("myfile", std::ios::in);
-	tofile.open("myfile.replace" , std::ios::trunc);
-	if (!myfile.is_open() || !tofile.is_open())
-		return (1);
-	while (std::getline(myfile, str))
+	Harl	harlLevel;
+	if (ac != 2)
 	{
-		str = Replace::find_in_str(str, s1, s2);
-		if (myfile.peek() == EOF)
-			tofile << str;
-		else
-			tofile << str << std::endl;
+		std::cout << "invalide level!!" << std::endl;
+		exit(1);
 	}
-	myfile.close();
-	tofile.close();
+	harlLevel.complain(av[1]);	
+	return (0);
 }

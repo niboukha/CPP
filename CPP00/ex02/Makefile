@@ -1,23 +1,29 @@
 CC = c++
-CFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g3
+
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g3
 
 NAME = Account
 
 SRC = tests.cpp Account.cpp
 
-OBJ = $(SRC:.cpp=.opp)
+OBJ = $(SRC:%.cpp=%.o)
 
 all : $(NAME)
 
-$(NAME): $(SRC)
-	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
+%.o : %.cpp %.hpp
+	$(CC) $(CXXFLAGS) -c $<
+	
 clean :
-	@rm -rf $(OBJ)
+	rm -rf $(OBJ)
 
 fclean : clean
-	@rm -rf $(NAME)
+	rm -rf $(NAME)
 
 re : fclean all
 
 .PHONY: all clean fclean re
+
+
