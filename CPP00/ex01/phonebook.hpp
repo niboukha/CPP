@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 10:01:32 by niboukha          #+#    #+#             */
-/*   Updated: 2023/10/30 13:27:11 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:17:58 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,21 @@
 class	PhoneBook
 {
 	private :
-		Contact	arr_contacts[8];
+		Contact	arrContacts[8];
 		int		index;
 
 	public :
-		void	add_contact(int index);
+		bool	addContact(int index);
 		void	search(int index);
-		bool	valide_cmd(std::string &name, std::string cmd);
-		void	write_string(std::string const &name, const char *color);
+		bool	valideCmd(std::string &input, std::string cmd);
+		void	writeString(std::string const &input, const char *color);
 		int		getIndex();
 		void	setIndex(int i);
-		void	contact_information(int index);
+		void	contactInformation(int index);
+		
+		static void	trimString(std::string &input);
+		static void checkInput(std::string &input);
+		static void	exitMessage (std::string message);
 };
 
 #endif

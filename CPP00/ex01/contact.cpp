@@ -6,149 +6,132 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 11:01:15 by niboukha          #+#    #+#             */
-/*   Updated: 2023/10/30 13:56:19 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:21:58 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 
-void	Contact::trim_string(std::string &name)
+const std::string&	Contact::getFirstName() const
 {
-	std::size_t	first;
-	std::size_t	last;
-
-	first = name.find_first_not_of(" \f\n\r\t\v");
-	last = name.find_last_not_of(" \f\n\r\t\v");
-	if (first == std::string::npos || last == std::string::npos)
-	{
-		first = 0;
-		last = -1;
-	}
-	name = name.substr(first, last - first + 1);
+	return (firstName); 
 }
 
-void	Contact::check_input(std::string &name)
+bool	Contact::setFirstName()
 {
-	trim_string(name);
-	std::replace(name.begin(), name.end(), '\t', ' ');
-	if (name.length() > 10)
-	{
-		name = name.substr(0, 9);
-		name.append(".");
-	}
-}
+	std::string input;
 
-std::string	Contact::getFirst_name()
-{
-	return (first_name); 
-}
-
-void	Contact::setFirst_name(std::string &name)
-{
 	while (1)
 	{
-		if (std::cin.eof())
-			exit(0);
 		std::cout << "First Name    : ";
-		std::getline(std::cin, name);
-		trim_string(name);
-		if (!name.empty())
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return (false);
+		PhoneBook::trimString(input);
+		if (!input.empty())
 		{
-			first_name = name;
-			break;
+			firstName = input;
+			return (true);
 		}
 	}
 }
 
-std::string	Contact::getLast_name()
+const std::string&	Contact::getLastName() const
 {
-	return (last_name); 
+	return (lastName); 
 }
 
-void	Contact::setLast_name(std::string &name)
+bool	Contact::setLastName()
 {
+	std::string input;
+
 	while (1)
 	{
-		if (std::cin.eof())
-			exit(0);
 		std::cout << "Last Name     : ";
-		std::getline(std::cin, name);
-		trim_string(name);
-		if (!name.empty())
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return (false);
+		PhoneBook::trimString(input);
+		if (!input.empty())
 		{
-			last_name = name;
-			break;
+			lastName = input;
+			return (true);
 		}
 	}
 }
 
-std::string	Contact::getNickname()
+const std::string&	Contact::getNickname() const
 {
 	return (nickname);
 }
 
-void	Contact::setNickname(std::string &name)
+bool	Contact::setNickname()
 {
+	std::string input;
+
 	while (1)
 	{
-		if (std::cin.eof())
-			exit(0);
 		std::cout << "Nickname      : ";
-		std::getline(std::cin, name);
-		trim_string(name);
-		if (!name.empty())
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return (false);
+		PhoneBook::trimString(input);
+		if (!input.empty())
 		{
-			nickname = name;		
-			break;
+			nickname = input;		
+			return (true);
 		}
 	}
 }
 
-std::string	Contact::getPhone_num()
+const std::string&	Contact::getPhoneNum() const
 {
-	return (phone_num);
+	return (phoneNum);
 }
 
-void	Contact::setPhone_num(std::string &name)
+bool	Contact::setPhoneNum()
 {
+	std::string number;
 	std::size_t	first;
+
 	while (1)
 	{
-		if (std::cin.eof())
-			exit(0);
 		std::cout << "Phone Number  : ";
-		std::getline(std::cin, name);
-		trim_string(name);
-		first = name.find_first_not_of("0123456789 \t\n\r\v");
-		if (!first || name.empty())
+		std::getline(std::cin, number);
+		if (std::cin.eof())
+			return (false);
+		PhoneBook::trimString(number);
+		first = number.find_first_not_of("0123456789 \t\n\r\v");
+		if (!first || number.empty())
 			std::cout << red << "phone number should have only digits" << std::endl;
 		else
 		{
-			phone_num = name;
-			break;
+			phoneNum = number;
+			return (true);
 		}
 		std::cout << reset;
 	}
 }
 
-std::string	Contact::getDarkest_secret()
+const std::string&	Contact::getDarkestSecret() const
 {
-	return (darkest_secret);
+	return (darkestSecret);
 }
 
-void	Contact::setDarkest_secret(std::string &name)
+bool	Contact::setDarkestSecret()
 {
+	std::string input;
 	while (1)
 	{
-		if (std::cin.eof())
-			exit(0);
 		std::cout << "Darkest Secret: ";
-		std::getline(std::cin, name);
-		trim_string(name);
-		if (!name.empty())
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return (false);
+		PhoneBook::trimString(input);
+		if (!input.empty())
 		{
-			darkest_secret = name;
-			break;
+			darkestSecret = input;
+			return (true);
 		}
 	}
 }

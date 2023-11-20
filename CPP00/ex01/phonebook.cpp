@@ -6,11 +6,37 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 10:01:29 by niboukha          #+#    #+#             */
-/*   Updated: 2023/10/30 14:31:18 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:20:54 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
+
+void	PhoneBook::trimString(std::string &input)
+{
+	std::size_t	first;
+	std::size_t	last;
+
+	first = input.find_first_not_of(" \f\n\r\t\v");
+	last = input.find_last_not_of(" \f\n\r\t\v");
+	if (first == std::string::npos || last == std::string::npos)
+	{
+		first = 0;
+		last = -1;
+	}
+	input = input.substr(first, last - first + 1);
+}
+
+void	PhoneBook::checkInput(std::string &input)
+{
+	trimString(input);
+	std::replace(input.begin(), input.end(), '\t', ' ');
+	if (input.length() > 10)
+	{
+		input = input.substr(0, 9);
+		input.append(".");
+	}
+}
 
 int		PhoneBook::getIndex()
 {
@@ -22,72 +48,60 @@ void	PhoneBook::setIndex(int i)
 	index = i;
 }
 
-void	PhoneBook::write_string(std::string const &name, const char *color)
+void	PhoneBook::writeString(std::string const &input, const char *color)
 {
 	unsigned long i;
 
 	i = 0;
-	while (i < name.length())
+	while (i < input.length())
 	{
-		std::cout << color << name[i] << std::flush;
-		std::this_thread::sleep_for(std::chrono::milliseconds(100));
+		std::cout << color << input[i] << std::flush;
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		i++;
 	}
 	std::cout << std::endl;
 }
 
-bool	PhoneBook::valide_cmd(std::string &name, std::string cmd)
+bool	PhoneBook::valideCmd(std::string &input, std::string cmd)
 {
-	if (!name.compare(cmd))
+	if (!input.compare(cmd))
 		return (true);
 	return (false);
 }
 
-void	PhoneBook::contact_information(int index)
+void	PhoneBook::contactInformation(int index)
 {
-	std::string	name;
+	std::string	input;
 	int			i;
-	int			j;
-	int			flag;
 	
-	while (1)
+	i = index + 1;
+	std::cout << green << "Enter an index to display the contact informations : " << reset << std::endl;
+	std::getline(std::cin, input);
+	if (std::cin.eof())
+		PhoneBook::exitMessage("Abborting !!");
+	if (input.empty())
+		return ;
+	if (!input.find_first_not_of("0123456789"))
 	{
-		if (std::cin.eof())
-			exit(0);
-		std::cout << green << "Enter an index to display the contact informations : " << reset << std::endl;
-		std::getline(std::cin, name);
-		if (name.empty())
-			break;
-		if (!name.find_first_not_of("12345678 \t\n\r\v"))
-		{
-			std::cout << red << "Index should have only digits" << std::endl;
-			std::cout << reset;
-			continue;
-		}
-		else
-			i = std::stoi(name);
-		j = 0;
-		flag = 0;
-		while (j < index)
-		{
-			if (i - 1 == j)
-			{
-				flag = 1;
-				std::cout << "First Name    : " << arr_contacts[j].getFirst_name() << std::endl;
-				std::cout << "Last Name     : " << arr_contacts[j].getLast_name() << std::endl;
-				std::cout << "Nickname      : " << arr_contacts[j].getNickname() << std::endl;
-				std::cout << "Phone Number  : " << arr_contacts[j].getPhone_num() << std::endl;
-				std::cout << "Darkest Secret: " << arr_contacts[j].getDarkest_secret() << std::endl;
-			}
-			j++;
-		}
-		if (flag != 1)
-		{
-			std::cout << red << "Index doesn't exist try again!!" << std::endl;
-			std::cout << reset;
-		}
-		else
-			break;
+		std::cout << red << "Index should have only digits" << std::endl;
+		std::cout << reset;
+		return ;
+	}
+	else if (input.length() == 1)
+		i = input[0] - 48;
+	if (i - 1 < index && i > 0)
+	{
+		std::cout << "First Name    : " << arrContacts[i - 1].getFirstName() << std::endl;
+		std::cout << "Last Name     : " << arrContacts[i - 1].getLastName() << std::endl;
+		std::cout << "Nickname      : " << arrContacts[i - 1].getNickname() << std::endl;
+		std::cout << "Phone Number  : " << arrContacts[i - 1].getPhoneNum() << std::endl;
+		std::cout << "Darkest Secret: " << arrContacts[i - 1].getDarkestSecret() << std::endl;
+	}
+	else
+	{
+		std::cout << red << "Invalid index!!" << std::endl;
+		std::cout << reset;
+		return ;
 	}
 }
 
@@ -105,14 +119,14 @@ void	PhoneBook::search(int index)
 	i = 0;
 	while (i < index)
 	{
-		fname = arr_contacts[i].getFirst_name();
-		arr_contacts[i].check_input(fname);
-		lname = arr_contacts[i].getLast_name();
-		arr_contacts[i].check_input(lname);
-		nname = arr_contacts[i].getNickname();
-		arr_contacts[i].check_input(nname);
+		fname = arrContacts[i].getFirstName();
+		checkInput(fname);
+		lname = arrContacts[i].getLastName();
+		checkInput(lname);
+		nname = arrContacts[i].getNickname();
+		checkInput(nname);
 		std::cout << "|" << std::flush;
-		std::cout << std::setw(10) << i << "|" 
+		std::cout << std::setw(10) << i + 1 << "|" 
 					<< std::setw(10) << fname << "|" 
 					<< std::setw(10) << lname << "|" 
 					<< std::setw(10) << nname << "|" 
@@ -120,20 +134,24 @@ void	PhoneBook::search(int index)
 		std::cout << "|----------" << "|----------" << "|----------" << "|----------|" << std::endl;
 		i++;
 	}
-	contact_information(index);
+	contactInformation(index);
 }
 
-void	PhoneBook::add_contact(int index)
+bool	PhoneBook::addContact(int index)
 {
-	std::string	name;
-
-	if (std::cin.eof())
-		exit(0);
-	write_string(" The Information Of The New Contact", green);
+	writeString(" The Information Of The New Contact", green);
 	std::cout << reset;
-	arr_contacts[index % 8].setFirst_name(name);
-	arr_contacts[index % 8].setLast_name(name);
-	arr_contacts[index % 8].setNickname(name);
-	arr_contacts[index % 8].setPhone_num(name);
-	arr_contacts[index % 8].setDarkest_secret(name);
+	return (
+		arrContacts[index % 8].setFirstName() and
+		arrContacts[index % 8].setLastName() and
+		arrContacts[index % 8].setNickname() and
+		arrContacts[index % 8].setPhoneNum() and
+		arrContacts[index % 8].setDarkestSecret() );
 }
+
+void	PhoneBook::exitMessage (std::string message)
+{
+	std::cout << std::endl << red << message << std::endl;	
+	exit(0);
+}
+

@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 16:07:26 by niboukha          #+#    #+#             */
-/*   Updated: 2023/10/30 11:29:53 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:20:29 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,29 @@
 class	Contact
 {
 	private :
-		std::string	first_name;
-		std::string	last_name;
+		std::string	firstName;
+		std::string	lastName;
 		std::string	nickname;
-		std::string	phone_num;
-		std::string	darkest_secret;
+		std::string	phoneNum;
+		std::string	darkestSecret;
 		
 	public :
 			
-		std::string	getFirst_name();
-		void	setFirst_name(std::string &name);
+		const std::string&	getFirstName() const;
+		bool	setFirstName();
 		
-		std::string	getLast_name();
-		void	setLast_name(std::string &name);
+		const std::string&	getLastName() const;
+		bool	setLastName();
 		
-		std::string	getNickname();
-		void	setNickname(std::string &name);
+		const std::string&	getNickname() const;
+		bool	setNickname();
 		
-		std::string	getPhone_num();
-		void	setPhone_num(std::string &name);
+		const std::string&	getPhoneNum() const;
+		bool	setPhoneNum();
 		
-		std::string	getDarkest_secret();
-		void	setDarkest_secret(std::string &name);
-		
-		static void	trim_string(std::string &name);
-		static void    check_input(std::string &name);
-		
+		const std::string&	getDarkestSecret() const;
+		bool	setDarkestSecret();
+	
 };
 
 #endif

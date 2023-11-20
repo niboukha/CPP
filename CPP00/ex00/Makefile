@@ -2,7 +2,7 @@ CC = c++
 
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g3
 
-NAME = Megaphone
+NAME = megaphone
 
 SRC = megaphone.cpp
 
