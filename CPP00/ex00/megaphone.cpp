@@ -6,12 +6,11 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 15:13:23 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/22 08:35:01 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/11/22 08:37:55 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string.h>
 
 int	main(int ac, char **av)
 {
