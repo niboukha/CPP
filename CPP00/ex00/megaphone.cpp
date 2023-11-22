@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 15:13:23 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/21 10:51:54 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/11/22 08:35:01 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ int	main(int ac, char **av)
 				std::cout << (char)std::toupper(arg[j]);
 		}
 	}
+	std::cout << std::endl;
 	return (0);
 }
