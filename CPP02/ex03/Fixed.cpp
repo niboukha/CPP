@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 15:54:00 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/21 15:08:59 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/11/27 12:53:11 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,22 @@ Fixed::Fixed(void) : fixedValue(0)
 	// std::cout << "Default constructor called" << std::endl; 
 }
 
-Fixed::~Fixed(void)
-{
-	// std::cout << "Destructor called" << std::endl;
-}
-
 Fixed::Fixed(const Fixed& copy)
 {
 	// std::cout << "Copy constructor called" << std::endl;
 	this->operator=(copy);
+}
+
+
+Fixed&	Fixed::operator=(const Fixed& fixed)
+{
+	fixedValue = fixed.fixedValue;
+	return (*this);
+}
+
+Fixed::~Fixed(void)
+{
+	// std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const int value) : fixedValue(value << numFracBits)
@@ -50,10 +57,10 @@ float	Fixed::toFloat(void) const
 
 int	Fixed::toInt(void) const
 {
-	int	f;
-	
-	f = fixedValue >> numFracBits;
-	return (f);
+	float	f;
+
+	f = (1.0 * fixedValue) / (1 << numFracBits);
+	return (std::roundf(f));
 }
 
 int	Fixed::getRawBits(void) const
@@ -66,17 +73,10 @@ void	Fixed::setRawBits(int const raw)
     fixedValue = raw;
 }
 
-
 std::ostream& operator<<(std::ostream& os, const Fixed& obj)
 {
 	os << obj.toFloat();
 	return	os;
-}
-
-Fixed&	Fixed::operator=(const Fixed& fixed)
-{
-	fixedValue = fixed.fixedValue;
-	return (*this);
 }
 
 bool	Fixed::operator>(const Fixed& fixed) const
@@ -129,7 +129,7 @@ Fixed	Fixed::operator*(Fixed const& fixed) const
 {
 	Fixed	obj;
 
-	obj.fixedValue = fixedValue * fixed.fixedValue / (1 << numFracBits);
+	obj.fixedValue = std::roundf((fixedValue * fixed.fixedValue * 1.0) / (1 << numFracBits));
 	return (obj);
 }
 
@@ -137,7 +137,7 @@ Fixed	Fixed::operator/(Fixed const& fixed) const
 {
 	Fixed	obj;
 
-	obj.fixedValue = fixedValue / fixed.fixedValue * (1 << numFracBits);
+	obj.fixedValue = std::roundf((fixedValue * 1.0 * (1 << numFracBits)) / fixed.fixedValue);
 	return (obj);
 }
 
@@ -173,28 +173,20 @@ Fixed		Fixed::operator++(int)
 
 Fixed&	Fixed::min(Fixed& fstFixed, Fixed& secFixed)
 {
-	if (fstFixed > secFixed)
-		return (secFixed);
-	return (fstFixed);
+	return ((fstFixed > secFixed) ? secFixed : fstFixed);
 }
 
 const Fixed&	Fixed::min(const Fixed& fstFixed, const Fixed& secFixed)
 {
-	if (fstFixed > secFixed)
-		return (secFixed);
-	return (fstFixed);
+	return ((fstFixed > secFixed) ? secFixed : fstFixed);
 }
 
 Fixed&	Fixed::max(Fixed& fstFixed, Fixed& secFixed)
 {
-	if (fstFixed < secFixed)
-		return (secFixed);
-	return (fstFixed);
+	return ((fstFixed < secFixed) ? secFixed : fstFixed);
 }
 
 const Fixed&	Fixed::max(const Fixed& fstFixed, const Fixed& secFixed)
 {
-	if (fstFixed < secFixed)
-		return (secFixed);
-	return (fstFixed);
+	return ((fstFixed < secFixed) ? secFixed : fstFixed);
 }

@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 15:37:41 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/21 17:13:13 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/11/25 18:18:57 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ Point&  Point::operator=(const Point& point)
 	return (*this);
 }
 
-const Fixed	Point::getX(void) const
+const Fixed&	Point::getX(void) const
 {
 	return(x);
 }
 
-const Fixed	Point::getY(void) const
+const Fixed&	Point::getY(void) const
 {
 	return (y);	
 }

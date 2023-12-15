@@ -2,7 +2,7 @@ CC = c++
 
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g3
 
-NAME = weapon
+NAME = ex03
 
 SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 

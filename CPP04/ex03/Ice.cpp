@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:49:36 by niboukha          #+#    #+#             */
-/*   Updated: 2023/12/01 15:51:24 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/12/02 11:18:42 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Ice::Ice() : AMateria("ice")
 	// std::cout << "Default constructor Ice" << std::endl;
 }
 
-Ice::Ice(Ice& ice)
+Ice::Ice(const Ice& ice) : AMateria("ice")
 {
 	// std::cout << "Copy Constructor Ice" << std::endl;
     this->operator=(ice);

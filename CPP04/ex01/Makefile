@@ -1,9 +1,9 @@
 CC = c++
 
-CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g3
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror #-fsanitize=address -g3
 
 NAME = ex01
-SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
+SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp WrongAnimal.cpp WrongCat.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 

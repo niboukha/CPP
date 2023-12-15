@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:49:39 by niboukha          #+#    #+#             */
-/*   Updated: 2023/12/01 17:17:45 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/12/02 11:25:57 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ void funv()
 int main()
 {
     funv();
-    system("leaks ex03");
+    // system("leaks ex03");
     return 0;
 }

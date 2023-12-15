@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:54:34 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/21 14:23:23 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/11/25 16:39:24 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ class Fixed
 	public :
 		Fixed(void);
 		~Fixed(void);
-		Fixed (const Fixed& fixed);
-		
+		Fixed(const Fixed& fixed);
 		Fixed&	operator=(const Fixed& fixed);
+		
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 };

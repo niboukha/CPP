@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 14:05:38 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/21 17:44:13 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/11/27 12:48:43 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ class Fixed
 
 	public :
 		Fixed	(void);
+		Fixed	(const Fixed& copy);
+		Fixed&	operator=(const Fixed& fixed);
+		~Fixed(void);
+		
 		Fixed	(const int value);
 		Fixed	(const float value);
-		~Fixed(void);
-		Fixed	(const Fixed& copy);
-		
-		Fixed&		operator=(const Fixed& fixed);
 
 		bool		operator>(const Fixed& fixed) const;
 		bool		operator<(const Fixed& fixed) const;
@@ -60,7 +60,6 @@ class Fixed
 		static const Fixed&	max(const Fixed& fstFixed, const Fixed& secFixed);
 		
 	};
-
-	std::ostream& operator<<(std::ostream& os, const Fixed& obj);
+	std::ostream&	operator<<(std::ostream& os, const Fixed& obj);
 
 	#endif

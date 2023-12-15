@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 14:08:57 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/21 17:02:20 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/11/25 18:19:03 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ class Point
 		~Point(void);
 		Point(const Point& copy);
 		
-		const Fixed	getX(void) const;
-		const Fixed	getY(void) const;
+		const Fixed&	getX(void) const;
+		const Fixed&	getY(void) const;
 		
 		Point&  operator=(const Point& point);
 		

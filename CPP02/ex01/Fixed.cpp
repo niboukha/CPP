@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:12:51 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/21 17:40:11 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/11/27 12:44:08 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@ Fixed::Fixed(void) : fixedValue(0)
 	std::cout << "Default constructor called" << std::endl; 
 }
 
-Fixed::~Fixed(void)
-{
-	std::cout << "Destructor called" << std::endl;
-}
-
 Fixed::Fixed(const Fixed& copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
@@ -32,15 +27,18 @@ Fixed::Fixed(const Fixed& copy)
 
 Fixed&	Fixed::operator=(const Fixed& fixed)
 {
-	fixedValue = fixed.fixedValue;
 	std::cout << "Copy assignment operator called" << std::endl;
+	fixedValue = fixed.fixedValue;
 	return (*this);
+}
+
+Fixed::~Fixed(void)
+{
+	std::cout << "Destructor called" << std::endl;
 }
 
 int	Fixed::getRawBits(void) const
 {
-    //current obj const
-    
     std::cout << "getRawBits member function called" << std::endl;
     return (fixedValue);
 }
@@ -70,10 +68,10 @@ float	Fixed::toFloat(void) const
 
 int	Fixed::toInt(void) const
 {
-	int	f;
-	
-	f = fixedValue >> numFracBits;
-	return (f);
+	float	f;
+
+	f = (1.0 * fixedValue) / (1 << numFracBits);
+	return (std::roundf(f));
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& obj)

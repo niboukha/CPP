@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 12:00:57 by niboukha          #+#    #+#             */
-/*   Updated: 2023/12/01 17:11:29 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/12/02 11:23:28 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ Character::Character() : name("character ")
         slots[i] = NULL;
 }
 
-Character::Character(Character& Character) : name("copy name")
+Character::Character(const Character& character) : name(character.name)
 {
 	// std::cout << "Copy Constructor Character" << std::endl;
-    this->operator=(Character);
+    for (int i = 0; i < 4; i++)
+        slots[i] = NULL;
+    this->operator=(character);
 }
 
 Character&   Character::operator=(const Character& character)

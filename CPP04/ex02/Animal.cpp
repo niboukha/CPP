@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 14:17:55 by niboukha          #+#    #+#             */
-/*   Updated: 2023/12/01 12:48:14 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/12/02 10:25:58 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Animal::Animal(void) : type("Animal")
 {
-	std::cout << "Default constructor Animal" << std::endl;
+	std::cout << "Default constractor Animal" << std::endl;
 }
 
 Animal::Animal(const Animal& animal)
 {
-	std::cout << "Copy Constructor Animal" << std::endl;
+	std::cout << "Copy Constractor Animal" << std::endl;
 	this->operator=(animal);
 }
 

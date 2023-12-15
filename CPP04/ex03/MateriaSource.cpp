@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:13:38 by niboukha          #+#    #+#             */
-/*   Updated: 2023/12/01 15:52:54 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/12/02 11:24:17 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ MateriaSource::MateriaSource()
         maSource[i] = NULL;
 }
 
-MateriaSource::MateriaSource(MateriaSource& materiaSource)
+MateriaSource::MateriaSource(const MateriaSource& materiaSource)
 {
     // std::cout << "Copy Constructor MateriaSource" << std::endl;
     for (int i = 0; i < 4; i++)
@@ -33,7 +33,10 @@ MateriaSource&   MateriaSource::operator=(const MateriaSource& materiaSource)
     for (int i = 0; i < 4; i++)
         delete maSource[i];
     for (int i = 0; i < 4; i++)
-        maSource[i] = materiaSource.maSource[i]->clone();   
+    {
+        if (materiaSource.maSource[i])
+            maSource[i] = materiaSource.maSource[i]->clone();   
+    }
     return (*this);
 } 
 

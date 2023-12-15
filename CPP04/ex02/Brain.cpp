@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 16:52:41 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/29 13:39:12 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/12/02 10:12:13 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,14 @@ Brain::~Brain(void)
 {
 	std::cout << "Destructor Brain" << std::endl;
 }
+
+const std::string&   Brain::getBrain(int index) const
+{
+	return (ideas[index]);
+}
+
+void    Brain::setBrain(std::string idea, int index)
+{
+	ideas[index] = idea;
+}
+

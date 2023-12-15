@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 16:49:05 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/29 13:34:29 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/12/02 09:56:43 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ class   Brain
         Brain(const Brain& brain);
         Brain&   operator=(const Brain& brain);
         ~Brain(void);
+
+        const std::string&   getBrain(int index) const;
+        void    setBrain(std::string idea, int index);
 };
 
 #endif

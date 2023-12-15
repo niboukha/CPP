@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 18:26:38 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/26 10:46:28 by niboukha         ###   ########.fr       */
+/*   Created: 2023/11/26 16:41:53 by niboukha          #+#    #+#             */
+/*   Updated: 2023/11/29 14:10:43 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef WrongANIMAL_HPP
+#define WrongANIMAL_HPP
 
-int	main(int ac, char **av)
+#include <iostream>
+
+class	WrongAnimal
 {
-	Harl	harlLevel;
-	if (ac != 2)
-	{
-		std::cout << "invalide level!!" << std::endl;
-		return (1);
-	}
-	harlLevel.complain(av[1]);	
-	return (0);
-}
+	protected :
+		std::string type;
+		
+	public :
+		WrongAnimal(void);
+		WrongAnimal(const WrongAnimal& Wronganimal);
+		WrongAnimal&   operator=(const WrongAnimal& Wronganimal);
+		~WrongAnimal(void);
+
+		void	setType(std::string _type);
+		const std::string	getType(void) const;
+		
+		void	makeSound() const;
+};
+
+#endif

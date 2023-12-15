@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:49:20 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/30 18:16:19 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/12/02 11:14:32 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Cure : public AMateria
 {
     public:
         Cure();
-        Cure(Cure& cure);
+        Cure(const Cure& cure);
         Cure&   operator=(const Cure& cure);   
         ~Cure();
 

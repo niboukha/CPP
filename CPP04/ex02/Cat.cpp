@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 14:48:18 by niboukha          #+#    #+#             */
-/*   Updated: 2023/12/01 15:22:27 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/12/02 10:17:28 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,15 @@ Cat::~Cat(void)
 void	Cat::makeSound() const
 {
     std::cout << "Cat says MeoW" << std::endl;
+}
+
+const std::string&   Cat::getCatIdea(int index) const
+{
+	return (brain->getBrain(index));
+}
+
+void    Cat::setCatIdea(std::string idea, int index)
+{
+	brain->setBrain(idea, index);
 }
 

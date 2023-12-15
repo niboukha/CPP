@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:13:41 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/30 16:55:01 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/12/02 11:24:12 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class MateriaSource : public IMateriaSource
 			
 		public:
 			MateriaSource();
-			MateriaSource(MateriaSource& MateriaSource);
+			MateriaSource(const MateriaSource& MateriaSource);
 			MateriaSource&   operator=(const MateriaSource& MateriaSource);   
 			~MateriaSource();
 

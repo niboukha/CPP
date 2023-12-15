@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 12:01:52 by niboukha          #+#    #+#             */
-/*   Updated: 2023/12/01 17:09:02 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/12/02 11:23:36 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class Character : public ICharacter
 
 	public:
 		Character();
-		Character(Character& character);
+		Character(const Character& character);
         Character&  operator=(const Character& character);
 		~Character();
 		

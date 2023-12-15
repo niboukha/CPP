@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:49:29 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/30 18:43:38 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/12/02 11:23:55 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ AMateria::AMateria() : _type("default")
 	// std::cout << "Default constructor AMateria" << std::endl;
 }
 
-AMateria::AMateria(AMateria& amateria) : _type("default")
+AMateria::AMateria(const AMateria& amateria) : _type("default")
 {
 	// std::cout << "Copy Constructor AMateria" << std::endl;
     this->operator=(amateria);

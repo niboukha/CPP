@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 13:14:09 by niboukha          #+#    #+#             */
-/*   Updated: 2023/12/01 15:20:07 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/12/02 10:04:43 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ class   Dog : public Animal
 		virtual ~Dog(void);
 		
 		virtual void	makeSound() const;
+
+		const std::string&   getDogIdea(int index) const;
+        void    setDogIdea(std::string idea, int index);
+		
 };
 
 #endif

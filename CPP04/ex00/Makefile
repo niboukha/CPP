@@ -1,6 +1,6 @@
 CC = c++
 
-CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g3
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror #-fsanitize=address -g3
 
 NAME = ex00
 SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp

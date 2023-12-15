@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:49:22 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/30 18:50:46 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/12/02 11:22:37 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Cure::Cure() : AMateria("cure")
 	// std::cout << "Default constructor Cure" << std::endl;
 }
 
-Cure::Cure(Cure& cure)
+Cure::Cure(const Cure& cure) : AMateria("cure")
 {
 	// std::cout << "Copy Constructor Cure" << std::endl;
     this->operator=(cure);
@@ -38,7 +38,7 @@ Cure::~Cure()
 AMateria* Cure::clone() const
 {
 	AMateria	*cure = new Cure;
-	*cure = *this; //why and how
+	*cure = *this;
 	return (cure);
 }
 

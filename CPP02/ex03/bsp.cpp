@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:11:28 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/21 17:27:11 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/11/27 12:47:57 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
 	trgB = Point::areaTriangle(a, b, point);
 	trgC = Point::areaTriangle(a, c, point);
 	trgP = Point::areaTriangle(b, c, point);
-	
-	std::cout << trgA << " " <<trgB << " " <<trgC << " "  << trgP << std::endl;
+
 	if (trgA == (trgB + trgC + trgP) and trgA != Fixed(0)
 		and trgB != Fixed(0) and trgC != Fixed(0) and trgP != Fixed(0))
 		return (true);

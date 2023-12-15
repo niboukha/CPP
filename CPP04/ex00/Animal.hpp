@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 13:09:10 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/29 14:09:58 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/12/02 09:50:02 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class	Animal
 		Animal(void);
 		Animal(const Animal& animal);
 		Animal&   operator=(const Animal& animal);
-		~Animal(void);
+		virtual ~Animal(void);
 
 		void	setType(std::string _type);
 		const std::string	getType(void) const;

@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 13:17:52 by niboukha          #+#    #+#             */
-/*   Updated: 2023/12/01 15:20:07 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/12/02 10:08:15 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,11 @@ class   Cat : public Animal
     Cat&   operator=(const Cat& cat);
     virtual ~Cat(void);
     
-    virtual void	makeSound() const;  
+    virtual void	makeSound() const;
+
+    const std::string&  getCatIdea(int index) const;
+    void                setCatIdea(std::string idea, int index);
+
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 14:44:06 by niboukha          #+#    #+#             */
-/*   Updated: 2023/12/01 15:22:27 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/12/02 10:07:03 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,12 @@ void	Dog::makeSound() const
     std::cout << "Dog says WooF" << std::endl;
 }
 
+const std::string&   Dog::getDogIdea(int index) const
+{
+	return (brain->getBrain(index));
+}
+
+void    Dog::setDogIdea(std::string idea, int index)
+{
+	brain->setBrain(idea, index);
+}

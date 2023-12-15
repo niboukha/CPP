@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 10:51:37 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/21 17:39:54 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/11/25 16:36:40 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Fixed::~Fixed(void)
 }
 
 Fixed::Fixed(const Fixed& fixed)
-{
+{      
 	std::cout << "Copy constructor called" << std::endl;
 	*this = fixed;
 }

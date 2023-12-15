@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 12:35:12 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/08 10:15:11 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/11/26 11:18:38 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,3 @@ void	Harl::complain(std::string level)
 	if (i == 4)
 		std::cout << "invalide level!!" << std::endl;
 }
-

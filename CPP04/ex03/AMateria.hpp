@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:49:31 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/30 18:11:17 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/12/02 11:23:48 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class AMateria
 
     public:
         AMateria();
-        AMateria(AMateria& amateria);
+        AMateria(const AMateria& amateria);
         AMateria&   operator=(const AMateria& amateria);   
         virtual	~AMateria();
 

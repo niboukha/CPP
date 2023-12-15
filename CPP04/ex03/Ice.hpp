@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:49:15 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/30 18:16:15 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/12/02 11:15:25 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@ class Ice : public AMateria
 {
     public:
         Ice();
-        Ice(Ice& ice);
+        Ice(const Ice& ice);
         Ice&   operator=(const Ice& ice);   
         ~Ice();
         
         AMateria* clone() const;
         void    use(ICharacter& target);
-
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: niboukha <niboukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 14:17:55 by niboukha          #+#    #+#             */
-/*   Updated: 2023/11/29 14:09:54 by niboukha         ###   ########.fr       */
+/*   Updated: 2023/12/02 09:51:06 by niboukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ Animal&   Animal::operator=(const Animal& animal)
 
 Animal::~Animal(void)
 {
+	std::cout << "Destructor Animal" << std::endl;
 }
 
 void	Animal::setType(std::string _type)
